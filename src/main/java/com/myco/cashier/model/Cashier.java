@@ -35,7 +35,7 @@ public class Cashier {
 	private FULLPARTTIME employmentType;
 	private boolean onOff;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "cashier", cascade = CascadeType.ALL)
 	List<Schedule> schedule;
 	
 	@ElementCollection

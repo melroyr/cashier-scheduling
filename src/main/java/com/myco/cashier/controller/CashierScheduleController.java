@@ -7,23 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myco.cashier.model.Cashier;
+import com.myco.cashier.model.CashierSchedule;
+import com.myco.cashier.service.CashierScheduleService;
 import com.myco.cashier.service.CashierService;
 
 @RestController
-@RequestMapping("/cashier/v1")
-public class CashierController {
+@RequestMapping("/cashierschedule/v1")
+public class CashierScheduleController {
 	
 	@Autowired
-	private CashierService service;
-
-	@PostMapping("/registercashier")
-	private Cashier registerCashier(@RequestBody Cashier cashier) {
-		return service.registerCashier(cashier);
-	}
+	private CashierScheduleService service;
 	
 	@PostMapping("/schedulecashier")
-	private Cashier scheduleCashier(@RequestBody Cashier cashier) {
-		return service.scheduleCashier(cashier);
+	private CashierSchedule scheduleCashier(@RequestBody CashierSchedule cashierSchedule) {
+		return service.saveCashierSchedule(cashierSchedule);
 	}
 	
 //	@PostMapping("/clockin")
